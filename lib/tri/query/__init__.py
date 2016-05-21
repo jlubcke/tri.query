@@ -165,6 +165,8 @@ class Variable(Frozen, VariableBase):
             assert op == '='
             if variable.attr is None:
                 return Q()
+            if isinstance(value_string_or_f, string_types) and value_string_or_f.lower() == 'null':
+                return Q(**{variable.attr: None})
             try:
                 instance = kwargs['choices'].get(**{variable.value_to_q_lookup: value_string_or_f})
             except ObjectDoesNotExist:
