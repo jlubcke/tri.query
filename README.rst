@@ -4,6 +4,15 @@
 .. image:: http://codecov.io/github/TriOptima/tri.query/coverage.svg?branch=master
     :target: http://codecov.io/github/TriOptima/tri.query?branch=master
 
+.. warning::
+    tri.query is end of life. It has been merged into `iommi <http://iommi.rocks>`_.
+
+    iommi is backwards incompatible but the porting effort should be fairly mild,
+    the biggest changes are that `show` is now called `include`, `Variable` is renamed
+    to `Filter` and plural is used consistently for containers (so `variable__foo` is
+    `filters__foo` in iommi).
+
+
 tri.query
 ==========
 
