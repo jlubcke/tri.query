@@ -1,6 +1,12 @@
 Changelog
 ---------
 
+6.3.0 (2020-03-09)
+~~~~~~~~~~~~~~~~~~
+
+* Better error reporting when doing freetext search when there are no freetext fields
+
+
 6.2.0 (2020-01-09)
 ~~~~~~~~~~~~~~~~~~
 
