@@ -673,7 +673,9 @@ class Query(RefinableObject):
         raise QueryException('Unknown variable "%s"' % variable_name)
 
     def freetext_as_q(self, token):
-        assert any(v.freetext for v in self.variables)
+        if not any(v.freetext for v in self.variables):
+            raise QueryException('There are no freetext fields available')
+
         assert len(token) == 1
         token = token[0].strip('"')
 
