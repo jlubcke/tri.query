@@ -87,6 +87,16 @@ def test_freetext():
     assert repr(MyTestQuery(request=RequestFactory().get('/', {'-': '-', 'term': 'asd'})).to_q()) == expected
 
 
+def test_freetext_fail_on_no_freetext_field():
+    class MyQuery(Query):
+        foo = Variable(attr='foo')
+
+    query = MyQuery()
+    with pytest.raises(QueryException) as e:
+        query.parse('"asd"')
+    assert "There are no freetext fields available" in str(e)
+
+
 def test_or():
     query = MyTestQuery()
     assert repr(query.parse('foo_name="asd" or bar_name = 7')) == repr(Q(**{'foo__iexact': 'asd'}) | Q(**{'bar__exact': 7}))
