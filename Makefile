@@ -41,12 +41,12 @@ docs:
 	tox -e docs
 
 dist: clean
-	python setup.py sdist
-	python setup.py bdist_wheel
+	python3.7 setup.py sdist
+	python3.7 setup.py bdist_wheel
 	ls -l dist
 
 tag:
-	python setup.py tag
+	python3.7 setup.py tag
 
 release-check:
-	python setup.py release_check
+	python3.7 setup.py release_check
